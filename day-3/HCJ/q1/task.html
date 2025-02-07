@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Task Creation & Display</h1>
+  <input type="text" id="searchinput" placeholder="title , description , priority"> 
+  <button id="btn">click</button>
+  <div id="container"></div>
+  <script>
+    const search = document.getElementById("#searchinput");
+    const btn = document.getElementById("#btn");
+    const container = document.getElementById("container");
+
+    function tasks(){
+      const task = search.value.trim();
+      const list = document.createElement("li");
+      list.innerHTML = `${task}<button onClick="movetask(this)">delete</button>`;
+      container.appendChild(list);
+      search.value = " ";
+    }
+
+    function removeTask(button){
+      button.parentElement.remove()
+    };
+    btn.addeventlistener("click",tasks);
+
+    
+  </script>
+  
+</body>
+</html>

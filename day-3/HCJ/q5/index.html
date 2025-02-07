@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2 id="display">00:00</h2>
+  <button id="start">start</button>
+  <button id="reset">reset</button>
+  <button id="stop">stop</button>
+  <script>
+    const display = document.querySelector("#display");
+    const start = document.querySelector("#start");
+    const reset = document.querySelector("#reset");
+    const stop = document.querySelector("#stop");
+
+    let interval;
+    let sec = 0;
+    let min = 0;
+
+    function formate(){
+      return `${min<10 ? '0' + min : min } :
+      ${sec<10 ? '0' + sec :sec}`;
+    }
+
+
+    start.addEventListener('click',()=>{
+      interval = setInterval(()=>{
+        sec++;
+        if(sec === 60){
+          sec = 0;
+          min++;
+        }
+        display.textContent = formate();
+      },1000);
+    });
+
+
+    reset.addEventListener('click',()=>{
+      clearInterval(interval);
+    })
+
+    stop.addEventListener('click',()=>{
+      clearInterval(interval);
+      sec = 0;
+      min = 0;
+      display.textContent = formate();
+
+    })
+  </script>
+</body>
+</html>

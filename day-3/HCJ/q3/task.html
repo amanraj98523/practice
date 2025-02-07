@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+  <form>
+    <label for="vegitable">
+      <ol id="vegitable">
+      <li class="veg" id="veg1">lady finger <input type="checkbox"></li>
+      <li class="veg" id="veg2">pomcine <input type="checkbox"></li>
+      <li class="veg" id="veg3">pea <input type="checkbox"></li>
+      <li class="veg" id="veg4">patato<input type="checkbox"></li>
+      <li class="veg" id="veg5">carrot <input type="checkbox"></li>
+      </ol>
+    </label>
+  </form>
+
+  <script>
+    const veg = document.querySelector(".veg");
+    var veg1 = document.querySelector("#veg1");
+    var veg2 = document.querySelector("#veg2");
+    var veg3 = document.querySelector("#veg3");
+    var veg4 = document.querySelector("#veg4");
+    var veg5 = document.querySelector("#veg5");
+
+     veg1 = "complete";
+     veg2 = "incomplete"
+     veg3 = "complete";
+     veg4 = "incomplete";
+     veg5 = "complete";
+      var action = "complete";
+    function task(){
+      switch(action){
+        case "complete":
+        veg.style.color= "green";
+        case "imcomplete":
+        veg.style.color = "red";
+        default:
+        <!-- veg.style.color= "white"; -->
+      }
+    }
+
+    veg.addEventListener("click",task());
+  </script>
+  
+</body>
+</html>
